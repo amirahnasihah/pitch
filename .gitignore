@@ -18,6 +18,9 @@ applications/*
 master-resume.tex
 master-resume.pdf
 
+# Compiled output of the tracked example template (the .tex is tracked).
+master-resume.example.pdf
+
 # OS / editor junk
 .DS_Store
 Thumbs.db

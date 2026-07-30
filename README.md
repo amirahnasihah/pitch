@@ -62,7 +62,12 @@ prep     before the interview: likely questions, STAR answers, mock round
 ```bash
 git clone https://github.com/amirahnasihah/shortlist.git
 cd shortlist
+cp master-resume.example.tex master-resume.tex
 ```
+
+That last step matters: `master-resume.tex` is gitignored, so your real
+details never reach GitHub. The tracked `master-resume.example.tex` holds a
+fictional persona showing the expected structure.
 
 Start your chosen agent and invoke skills using its native syntax:
 
@@ -82,7 +87,8 @@ Then, inside the agent:
 
    Your master resume should hold *more* than a normal resume — every
    project, every number, every skill. It can be several pages; it is never
-   sent anywhere. See `master-resume.tex` for the template and format.
+   sent anywhere. See `master-resume.example.tex` for the expected structure
+   and formatting.
 
 2. **Apply to a job.** Find a real posting, copy the text, then invoke the
    `analyze`, `tailor`, and `review` skills in that order. Use `/skill-name`

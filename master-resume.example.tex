@@ -1,0 +1,152 @@
+% ============================================================
+% MASTER RESUME TEMPLATE — copy this, do not edit it in place.
+%
+%   cp master-resume.example.tex master-resume.tex
+%
+% master-resume.tex is gitignored, so your real details stay off
+% GitHub. This example file is tracked, so it is the one every
+% clone starts from. Keep it fictional.
+%
+% *** FICTIONAL DATA ***
+% "Jordan Ruiz" is a made-up persona. It is NOT a real candidate.
+% It exists to show the expected structure and formatting.
+%
+% In your own copy, put EVERYTHING: all jobs, all projects, all
+% skills, all numbers. It can be several pages long, and it is
+% NEVER sent anywhere. The tailor skill selects from it to build
+% one-page tailored resumes per job.
+%
+% Compile with: tectonic master-resume.tex
+%
+% DESIGN NOTES (keep these — they make it ATS-safe AND clean):
+%  - Single column, standard fonts, no tables/graphics/icons.
+%  - Contact info in the body (not in a header/footer).
+%  - Consistent section rule via titlesec (never clamps text).
+%  - " | " separators, no em dashes.
+% ============================================================
+\documentclass[11pt]{article}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{parskip}
+\usepackage{titlesec}
+\pagestyle{empty}
+
+% Consistent section style: title, small gap, full-width rule.
+\titleformat{\section}
+  {\large\bfseries}{}{0pt}{}[\vspace{2pt}\hrule]
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+
+% Job/entry header: "Title | Organisation, Location            Dates"
+\newcommand{\job}[4]{% title, org, location(with leading ", " or empty), dates
+  \vspace{4pt}{\bfseries #1} | #2#3 \hfill #4\par}
+
+\setlist[itemize]{leftmargin=15pt, itemsep=1pt, topsep=2pt, parsep=0pt}
+
+\begin{document}
+
+% ---------- CONTACT ----------
+\begin{center}
+{\LARGE\bfseries Jordan Ruiz}\\[3pt]
+Austin, TX, USA $\vert$ jordan.ruiz.test@example.com $\vert$ +1 512 555 0134\\[1pt]
+\href{https://linkedin.com/in/jordanruiz-test}{linkedin.com/in/jordanruiz-test} $\vert$
+\href{https://github.com/jordanruiz-test}{github.com/jordanruiz-test} $\vert$
+\href{https://jordanruiz.example.com}{jordanruiz.example.com}
+\end{center}
+
+% ---------- SUMMARY ----------
+\section{Summary}
+Backend-leaning software engineer with 5 years of experience building and
+scaling Python and Node.js services on AWS. Strongest in API design, event
+pipelines, and deployment automation. Cut failed-deploy recovery time by
+60\% by building automated rollback tooling.
+
+% ---------- SKILLS ----------
+\section{Skills}
+\textbf{Languages:} Python, TypeScript/JavaScript, SQL, Go\\
+\textbf{Backend \& Cloud:} FastAPI, Django, Node.js/Express, AWS (Lambda, ECS, RDS), Docker, Kubernetes\\
+\textbf{Data \& Tools:} PostgreSQL, Redis, Kafka, Airflow, Terraform, GitHub Actions\\
+\textbf{Spoken:} English (native), Spanish (conversational)
+
+% ---------- WORK EXPERIENCE ----------
+\section{Work Experience}
+
+\job{Backend Engineer}{Northlake Systems}{, Austin, TX}{Jun 2022 - Present}
+\begin{itemize}
+  \item Redesigned the order-processing API from a monolith into 6 microservices
+        using FastAPI and Docker, cutting average response time from 480ms to 140ms.
+  \item Built a Kafka-based event pipeline processing 2.3M events per day,
+        replacing a nightly batch job and reducing data staleness from 24 hours
+        to under 5 minutes.
+  \item Automated deployment rollback tooling with GitHub Actions and Terraform,
+        cutting failed-deploy recovery time by 60\%.
+  \item Migrated the primary PostgreSQL database to a read-replica architecture,
+        cutting peak query latency by 35\% during traffic spikes.
+  \item Mentored 3 junior engineers through a structured onboarding program,
+        shortening ramp-up time from 8 weeks to 5.
+  \item Introduced contract testing between 4 internal services using Pact,
+        reducing integration bugs caught in staging by 45\%.
+  \item Wrote internal runbooks and documentation that cut on-call escalations
+        by 30\%.
+\end{itemize}
+
+\job{Software Engineer}{BrightPath Analytics}{, Remote}{Mar 2020 - May 2022}
+\begin{itemize}
+  \item Built a customer-facing analytics dashboard in React and Node.js used
+        by over 1,200 monthly active clients.
+  \item Developed ETL pipelines in Python and Airflow ingesting data from
+        15+ third-party APIs, processing 500,000+ records daily.
+  \item Implemented role-based access control across 3 internal applications,
+        closing a security gap flagged in a client audit.
+  \item Optimized a reporting SQL query from 12 seconds to 900ms by adding
+        targeted indexes and rewriting joins.
+  \item Shipped a self-serve data export feature with the product team,
+        reducing support tickets related to data requests by 25\%.
+  \item Wrote unit and integration tests that raised backend test coverage
+        from 40\% to 78\%.
+\end{itemize}
+
+% ---------- PROJECTS ----------
+% Personal, freelance, open-source, or capstone projects all belong here.
+\section{Projects}
+
+\job{shipwatch (open-source CLI)}{Python, Click, GitHub Actions}{}{2023}
+\begin{itemize}
+  \item Built and published a CLI tool that monitors GitHub Actions workflow
+        health across multiple repos, reaching 300+ GitHub stars.
+  \item Added Slack alerting integration, adopted by 2 other engineering teams
+        outside the original project.
+\end{itemize}
+
+\job{Kubernetes autoscaling demo (bootcamp capstone)}{Kubernetes, Terraform, AWS}{}{2022}
+\begin{itemize}
+  \item Built a demo cluster with horizontal pod autoscaling triggered by
+        custom Prometheus metrics, presented to a panel of 4 industry mentors.
+\end{itemize}
+
+\job{Personal finance tracker}{TypeScript, Next.js, PostgreSQL}{}{2021}
+\begin{itemize}
+  \item Built a self-hosted budgeting app with automatic bank-statement CSV
+        parsing and category tagging.
+  \item Used by a group of 20 beta users; iterated across 3 releases based on
+        their feedback.
+\end{itemize}
+
+% ---------- EDUCATION ----------
+% Degrees AND bootcamps/academies/training programmes go here.
+\section{Education}
+\job{B.S. Computer Science}{University of Texas at Austin}{}{2016 - 2020}
+GPA 3.6/4.0. Relevant coursework: Distributed Systems, Databases, Algorithms.
+
+\job{Cloud Infrastructure Bootcamp}{CloudForge Academy}{}{2022}
+8-week intensive programme in AWS and Kubernetes infrastructure; team
+capstone project (see Projects).
+
+% ---------- CERTIFICATIONS ----------
+\section{Certifications}
+\begin{itemize}
+  \item AWS Certified Solutions Architect - Associate — Amazon Web Services, 2023
+  \item Terraform Associate — HashiCorp, 2022
+\end{itemize}
+
+\end{document}

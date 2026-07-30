@@ -4,6 +4,10 @@ These rules apply to every agent, every skill, and every generated document.
 
 ## Ground truth
 - `master-resume.tex` is the ONLY source of truth about the candidate.
+- That file is gitignored, so a fresh clone will not have it. If it is
+  missing, tell the user to run
+  `cp master-resume.example.tex master-resume.tex` and fill it in. NEVER
+  treat the fictional example persona as the candidate.
 - NEVER invent, exaggerate, or assume jobs, titles, dates, skills, tools,
   metrics, or achievements. If information is missing, ASK the user.
 - If a job requirement is not covered by the master resume, report it as a
