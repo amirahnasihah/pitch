@@ -15,7 +15,8 @@ applications/*
 
 # Your real master resume may contain personal data. If you fork this repo
 # publicly, consider keeping your filled-in version private:
-# master-resume.tex
+master-resume.tex
+master-resume.pdf
 
 # OS / editor junk
 .DS_Store

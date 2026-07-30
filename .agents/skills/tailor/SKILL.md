@@ -22,7 +22,7 @@ Requirements:
    (a) why this company specifically (use the company research),
    (b) my 2-3 strongest matching achievements with real numbers,
    (c) short, confident closing. Avoid clichés. No em dashes.
-4. Compile both to PDF with pdflatex. Fix any compile errors yourself.
+4. Compile both to PDF with tectonic (or pdflatex). Fix any compile errors yourself.
    Confirm the resume is ONE page; trim lowest-relevance content if not.
 5. Write `changelog.md`: every meaningful change vs. the master resume,
    each with a one-line reason.

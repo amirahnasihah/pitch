@@ -1,6 +1,6 @@
 # Cross-Tool Portability Implementation Plan
 
-**Goal:** Make Job Kit's rules and five workflows natively discoverable in Claude Code, Codex CLI, and OpenCode.
+**Goal:** Make Shortlist's rules and five workflows natively discoverable in Claude Code, Codex CLI, and OpenCode.
 
 **Architecture:** `AGENTS.md` becomes the canonical rules file, while `CLAUDE.md` imports it. Each workflow is stored byte-for-byte identically in `.agents/skills/` and `.claude/skills/`; no wrappers, symlinks, generators, or dependencies are added.
 
@@ -74,7 +74,7 @@ for skill in analyze tailor review prep log; do grep -q "^name: $skill$" ".agent
 - Modify: `README.md`
 - Modify: `CONTRIBUTING.md`
 
-- [ ] Describe Job Kit as an agent-powered resume workflow targeting Claude Code, Codex CLI, and OpenCode compatibility.
+- [ ] Describe Shortlist as an agent-powered resume workflow targeting Claude Code, Codex CLI, and OpenCode compatibility.
 - [ ] Require one target-compatible agent harness plus LaTeX instead of requiring Claude specifically.
 - [ ] Document `claude` with `/analyze`, `codex` with `$analyze` or `/skills`, and `opencode` with a normal request to use the analyze skill.
 - [ ] Explain that skills are mirrored in `.agents/skills/` and `.claude/skills/`, while shared rules live in `AGENTS.md`.

@@ -1,4 +1,4 @@
-# Job Kit - A Resume Tailor
+# Shortlist - A Resume Tailor
 
 Turn one master resume into a job-specific, ATS-safe resume and cover letter
 in minutes using a target-compatible AI agent harness and LaTeX.
@@ -60,8 +60,8 @@ prep     before the interview: likely questions, STAR answers, mock round
 ## Quick start
 
 ```bash
-git clone https://github.com/yapsancode/job-kit.git
-cd job-kit
+git clone https://github.com/amirahnasihah/shortlist.git
+cd shortlist
 ```
 
 Start your chosen agent and invoke skills using its native syntax:
@@ -158,3 +158,7 @@ especially. Keep the two core rules intact: ATS-safe, and never invent.
 ## License
 
 MIT — see [LICENSE](LICENSE). Free to use, fork, and share.
+
+Shortlist began as a fork of [yapsancode/job-kit](https://github.com/yapsancode/job-kit)
+by Muhammad Isyraf Afifi bin Ismail, whose original MIT copyright is retained
+in [LICENSE](LICENSE).

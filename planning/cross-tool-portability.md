@@ -10,7 +10,7 @@ draft of this plan — one of its assumptions turned out to be wrong (see
 "Correction" below), so read this version, not old notes elsewhere.
 
 ## Goal
-Let someone use job-kit with Claude Code, OpenCode, or Codex CLI without
+Let someone use shortlist with Claude Code, OpenCode, or Codex CLI without
 rewriting the project. Keep the `analyze -> tailor -> review -> prep`
 workflow and the two core promises (never invent, ATS-safe) identical in all
 three. Invocation syntax is tool-specific: Claude Code exposes `/analyze`,

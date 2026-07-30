@@ -28,8 +28,9 @@ These rules apply to every agent, every skill, and every generated document.
   role title and its organisation; inside sentences, restructure or use a
   colon or hyphen.
 - Keep the tailored resume to ONE page (two only if 10+ years experience).
-- Compile with pdflatex. After compiling, run a text-extraction check
-  (pdftotext) to confirm the text reads top-to-bottom in the correct order.
+- Compile with tectonic (preferred) or pdflatex. After compiling, run a
+  text-extraction check (pdftotext) to confirm the text reads top-to-bottom
+  in the correct order.
 
 ## Writing style for bullets
 - Start with an action verb. Include a real number where the master resume
