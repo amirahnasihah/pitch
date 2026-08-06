@@ -5,6 +5,7 @@
       "Bash(tectonic *)",
       "Bash(pdftotext *)",
       "Bash(pdfinfo *)",
+      "Bash(scripts/check-pages.sh *)",
       "Bash(mkdir *)",
       "WebSearch",
       "Edit(master-resume.tex)",

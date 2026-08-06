@@ -17,6 +17,11 @@ REVIEWER 1 — Skeptical recruiter (30-second test):
   actually contains a number we forgot to use.
 - Read the cover letter: would a tired recruiter finish it? Flag clichés.
 
+HARD GATE — Page count:
+- Run `scripts/check-pages.sh applications/<company>/resume.pdf`.
+- Prefer 1 page; hard max 2. If Pages > 2, the application FAILS review —
+  do not soft-warn; list trim fixes before other feedback.
+
 REVIEWER 2 — ATS robot test:
 - Extract raw text from resume.pdf (pdftotext or a script).
 - Check: does the text read top-to-bottom in correct order? Are name,

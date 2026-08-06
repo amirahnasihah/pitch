@@ -31,7 +31,10 @@ These rules apply to every agent, every skill, and every generated document.
 - No em dashes. Use " | " as a separator in the contact line and between a
   role title and its organisation; inside sentences, restructure or use a
   colon or hyphen.
-- Keep the tailored resume to ONE page (two only if 10+ years experience).
+- Prefer ONE page. Hard maximum: TWO pages. Never ship three or more.
+  After compiling, run `scripts/check-pages.sh <resume.pdf>` (uses
+  pdfinfo). Exit non-zero / fail the tailor if Pages > 2; trim until it
+  passes. Prefer trimming to 1 page when content allows.
 - Compile with tectonic (preferred) or pdflatex. After compiling, run a
   text-extraction check (pdftotext) to confirm the text reads top-to-bottom
   in the correct order.
