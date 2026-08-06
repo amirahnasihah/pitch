@@ -13,8 +13,8 @@ REVIEWER 1 — Skeptical recruiter (30-second test):
 - Read only the top third of resume.pdf. Is the match with the job obvious
   in 10 seconds? If not, say exactly what to move up.
 - Flag anything vague, exaggerated, or buzzword-empty.
-- Flag any bullet without a concrete result where the master resume
-  actually contains a number we forgot to use.
+- Flag any bullet without a concrete result where log.exe / the master
+  cache actually contains a number we forgot to use.
 - Read the cover letter: would a tired recruiter finish it? Flag clichés.
 
 HARD GATE — Page count:

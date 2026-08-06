@@ -1,9 +1,11 @@
 ---
 name: analyze
-description: Analyze a job posting and map its requirements to the master resume as strong matches, partial matches, or honest gaps. Use when the user provides a job description or URL and wants a fit analysis before tailoring.
+description: Analyze a job posting and map its requirements to log.exe facts (and the master-resume cache) as strong matches, partial matches, or honest gaps. Use when the user provides a job description or URL and wants a fit analysis before tailoring.
 ---
 
 Analyze the job posting in the user's message. If the message contains a URL, fetch it and use its content as the job posting. If URL retrieval is unavailable or fails, ask the user to paste the job description directly.
+
+**Facts SoT = log.exe** (MCP/CLI). `master-resume.tex` is layout/cache only. See `AGENTS.md`.
 
 Steps:
 1. If I gave nothing, ask me to paste the job description.
@@ -14,7 +16,10 @@ Steps:
    have" = low).
 4. List the exact keywords and phrases the posting uses (skills, tools,
    methods, certifications). These matter for ATS keyword matching.
-5. Read `master-resume.tex` and map each requirement to my real experience:
+5. Pull facts from log.exe first (`get_site_meta`, `get_experience`,
+   `list_projects`, `list_clients`; skills via `logexe experience` / REST
+   `/api/experience`). Use `master-resume.tex` only as a secondary cache.
+   Map each requirement to my real experience:
    - STRONG match (I clearly have it)
    - PARTIAL match (related experience, needs careful wording)
    - GAP (I don't have it — be honest, do not invent)

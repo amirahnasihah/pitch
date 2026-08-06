@@ -3,11 +3,15 @@
 Turn one master resume into a job-specific, ATS-safe resume and cover letter
 in minutes using a target-compatible AI agent harness and LaTeX.
 
-You keep **one** master resume with everything you have ever done. For each
-job, you paste the posting and run a few skills. Your agent reads the job,
-picks your most relevant experience, and generates a tailored one-page
-resume and cover letter as PDFs — then stress-tests them like a real
-recruiter and an ATS robot.
+For Amirah’s setup, **log.exe** is the source of truth for career facts
+(MCP / CLI / API). This repo owns **LaTeX layout and per-job trim**;
+`master-resume.tex` is a local layout cache (gitignored), not a second
+database. See `AGENTS.md` for MCP wiring.
+
+For each job, you paste the posting and run a few skills. Your agent pulls
+facts from log.exe, picks the most relevant experience, and generates a
+tailored one-page resume and cover letter as PDFs — then stress-tests them
+like a real recruiter and an ATS robot.
 
 ## Why this exists
 
@@ -26,11 +30,11 @@ rules that actually matter:
 ## How it works
 
 ```
-log      keep your master resume fresh as you ship and learn (use anytime)
+log      write facts to log.exe, refresh master-resume.tex cache (anytime)
   |
-analyze  paste a job posting -> match report (strong / partial / gap)
+analyze  paste a job posting -> match vs log.exe (strong / partial / gap)
   |
-tailor   generate the tailored resume + cover letter as PDFs
+tailor   pull log.exe facts -> trim in LaTeX -> resume + cover PDFs
   |
 review   stress-test: skeptical recruiter + ATS robot, scored out of 10
   |
@@ -131,10 +135,10 @@ systems; check their docs for the equivalent setting.)
 | Skill | What it does |
 |---|---|
 | `analyze` | Studies a job posting and maps each requirement to your experience: strong match, partial match, or honest gap. |
-| `tailor` | Builds the tailored one-page resume and cover letter as PDFs, following the ATS-safe rules. Shows a changelog and flags any gap it refused to fake. |
+| `tailor` | Pulls facts from log.exe MCP/CLI, then builds the tailored resume and cover letter as PDFs (prefer 1 page, max 2). Shows a changelog and flags any gap it refused to fake. |
 | `review` | Two strict reviewers: a recruiter doing a 10-second scan, and an ATS robot checking keyword coverage and parse order. Scores each out of 10. |
 | `prep` | Generates likely interview questions, STAR answers built from your real experience, honest ways to handle gaps, and smart questions to ask them. Can run a mock interview. |
-| `log` | Files a new achievement or number into your master resume as a proper bullet, keeping your facts exact. |
+| `log` | Files a new achievement into log.exe (facts SoT) and refreshes `master-resume.tex` as cache. |
 
 The skills are readable Markdown files mirrored in `.agents/skills/` and
 `.claude/skills/`. Keep both copies identical when customizing them.
@@ -142,10 +146,12 @@ The skills are readable Markdown files mirrored in `.agents/skills/` and
 ## The rules agents follow
 
 Every target-compatible agent reads the shared project rules from `AGENTS.md`;
-`CLAUDE.md` imports that file for Claude Code compatibility. In short,
-`master-resume.tex` is the only source of truth, nothing is ever invented,
-resumes stay ATS-safe and one page, and everything is organised per company
-under `applications/`. Adjust `AGENTS.md` to fit your own standards.
+`CLAUDE.md` imports that file for Claude Code compatibility. In short:
+**facts SoT = log.exe**, **layout SoT = pitch**, nothing is invented,
+resumes stay ATS-safe (prefer 1 page, hard max 2 via `scripts/check-pages.sh`),
+and everything is organised per company under `applications/`. Wire log.exe
+MCP once (`bun run mcp:setup` in log.exe `web/`, or OpenCode remote MCP —
+creds in `~/.log-exe-creds`). Adjust `AGENTS.md` to fit your own standards.
 
 ## A note on honesty
 

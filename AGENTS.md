@@ -2,19 +2,130 @@
 
 These rules apply to every agent, every skill, and every generated document.
 
-## Ground truth
-- `master-resume.tex` is the ONLY source of truth about the candidate.
-- That file is gitignored, so a fresh clone will not have it. If it is
-  missing, tell the user to run
-  `cp master-resume.example.tex master-resume.tex` and fill it in. NEVER
-  treat the fictional example persona as the candidate.
-- NEVER invent, exaggerate, or assume jobs, titles, dates, skills, tools,
-  metrics, or achievements. If information is missing, ASK the user.
-- If a job requirement is not covered by the master resume, report it as a
-  gap. Do not paper over it. Honest gaps are useful; fabrication is not.
+## Sources of truth (split ownership)
+
+| Concern | Source of truth | Notes |
+|---|---|---|
+| **Facts** (roles, bullets, skills, projects, certs, clients, metrics) | **log.exe** | Via MCP (preferred), `logexe` CLI, or REST. Do not invent from stale TeX alone. |
+| **PDF layout + per-job trim** | **this repo (pitch)** | LaTeX templates, ATS rules, page budget, `applications/<company>/`. |
+| **Application trail** | deferred | See below — folders today; no tracker product yet. |
+
+### Facts: log.exe
+
+Amirah’s career corpus lives in log.exe (`https://exe.amrhnshh.com`, local
+`:4500`). Pitch does **not** own that data. Before analyze/tailor/log, **pull
+fresh facts** from log.exe (MCP first). Never fabricate jobs, titles, dates,
+skills, tools, metrics, or achievements. If information is missing after a
+pull, ASK the user. Honest gaps beat invention.
+
+### Layout cache: `master-resume.tex`
+
+`master-resume.tex` is a **LaTeX layout + local cache** of facts already
+confirmed in log.exe. It is gitignored. Keep it; do **not** delete it.
+
+- Prefer refreshing its content from log.exe when it drifts or before a
+  tailor session that will edit it.
+- If it is missing, `cp master-resume.example.tex master-resume.tex` and
+  fill from log.exe — NEVER treat the fictional example persona as the
+  candidate.
+- If a job requirement is not covered by log.exe (and thus not in the
+  refreshed master), report it as a gap. Do not paper over it.
+
+### Application trail (deferred)
+
+Not built yet. When it exists, a trail row should be enough: **company**,
+**role**, **date**, **folder** (`applications/<company>/`), **status**
+(e.g. drafted / submitted / interviewing / closed). Until then, the folder
+plus `changelog.md` / `review.md` is the trail. Do not build a tracker in
+this pass.
+
+## log.exe MCP / CLI wiring
+
+Credentials: `~/.log-exe-creds` (`chmod 600`), shared by CLI and MCP setup.
+See log.exe `web/README.md` (`bun run mcp:setup`).
+
+### Claude Code
+
+From the log.exe `web/` directory:
+
+```bash
+bun run mcp:setup          # production → user-scope server `log-exe`
+bun run mcp:setup --local  # localhost:4500 → project-scope `log-exe-dev`
+```
+
+Restart Claude Code after setup. Pitch sessions then call the `log-exe`
+(or `log-exe-dev`) tools directly.
+
+### OpenCode
+
+Add a remote MCP entry (headers from `~/.log-exe-creds`, never commit
+secrets). Production example shape:
+
+```jsonc
+"mcp": {
+  "log-exe": {
+    "type": "remote",
+    "url": "https://exe.amrhnshh.com/api/mcp",
+    "enabled": true,
+    "oauth": false,
+    "headers": {
+      "Authorization": "Bearer <LOGEXE_WRITE_TOKEN>",
+      "CF-Access-Client-Id": "<CF_ACCESS_CLIENT_ID>",
+      "CF-Access-Client-Secret": "<CF_ACCESS_CLIENT_SECRET>"
+    }
+  }
+}
+```
+
+Local: `http://localhost:4500/api/mcp` with only the Bearer write token
+(Access is not in front of localhost).
+
+### Fact-pull tools (call these first)
+
+Prefer MCP. Names below are real tools on the log-exe server:
+
+| Tool | Use for resume |
+|---|---|
+| `get_site_meta` | Summary, location, GitHub, website (contact / headline) |
+| `get_experience` | Certifications + experience groups (bullets / tech) |
+| `list_projects` | Projects; filter by `kind` (`work` \| `personal`) |
+| `get_project` | Full detail for a selected slug |
+| `list_clients` | Client / internal engagements (generalized) |
+| `list_articles` | Public writing samples when relevant |
+| `ask_kb` | Optional: keyword Q&A with citations when unsure where a fact lives |
+
+**Skills:** MCP `get_experience` returns certifications + groups only. Skill
+areas come from REST `GET /api/experience` (includes `skills`) or CLI
+`logexe experience` (same payload). Use that fallback for the Skills
+section; do not invent a non-existent MCP skills tool.
+
+### CLI fallback (`logexe`)
+
+If MCP is unavailable:
+
+```bash
+logexe --prod experience    # or omit --prod for localhost:4500
+logexe --prod projects list
+logexe --prod clients
+logexe --prod articles list
+```
+
+Creds: `~/.log-exe-creds`. KB ask is REST/MCP only (`ask_kb` /
+`POST /api/kb/ask`), not a CLI subcommand.
+
+### Section mapping (facts → LaTeX)
+
+| Resume section | log.exe source |
+|---|---|
+| Header / Summary | `get_site_meta` (+ trim for the job) |
+| Skills | REST/CLI experience `skills` |
+| Work Experience | `get_experience` groups; deepen with `list_clients` when needed |
+| Projects | `list_projects` / `get_project` (`kind` guides work vs personal) |
+| Certifications | `get_experience` → `certifications` |
+| Education | Still often only in `master-resume.tex` until seeded in log.exe — ask if missing |
 
 ## Asking the user questions
-- Before asking anything, check whether `master-resume.tex` already answers it.
+- Before asking anything, check log.exe (MCP/CLI) and then `master-resume.tex`.
 - Collect every question you have FIRST, then ask them together as ONE
   batched, numbered list — never one question at a time across many turns.
 - If a second round is truly needed, keep it short and explain why.
@@ -40,8 +151,8 @@ These rules apply to every agent, every skill, and every generated document.
   in the correct order.
 
 ## Writing style for bullets
-- Start with an action verb. Include a real number where the master resume
-  provides one. Never fabricate numbers.
+- Start with an action verb. Include a real number where log.exe / the
+  master cache provides one. Never fabricate numbers.
 - Mirror the job description's exact wording ONLY when it truthfully
   describes the candidate's experience.
 

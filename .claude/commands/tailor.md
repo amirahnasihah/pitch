@@ -1,8 +1,22 @@
 Create a tailored resume and cover letter for: $ARGUMENTS
 (If no company name given, use the most recent folder in `applications/`.)
 
+**Ownership:** log.exe = facts SoT. Pitch = PDF layout + per-job trim.
+Follow every rule in `AGENTS.md` (including page policy and MCP wiring).
+
 Requirements:
-1. Read `master-resume.tex` and `applications/<company>/job-analysis.md`.
+
+0. **Refresh facts from log.exe first** (do not invent from stale TeX alone):
+   - MCP: `get_site_meta`, `get_experience`, `list_projects` (+ `get_project`
+     for keepers), `list_clients`, optionally `list_articles` / `ask_kb`.
+   - Skills: CLI `logexe experience` or REST `GET /api/experience` (MCP
+     `get_experience` omits skill areas).
+   - Fallback: `logexe` / REST with `~/.log-exe-creds`. Optionally refresh
+     `master-resume.tex` as layout cache from those facts.
+
+1. Read `applications/<company>/job-analysis.md` and the refreshed facts /
+   `master-resume.tex` cache.
+
 2. Build `resume.tex` in the company folder:
    - Select ONLY the most relevant experience, projects, and skills for the
      top-priority requirements. Cut low-relevance content to fit one page
@@ -14,16 +28,20 @@ Requirements:
      rules never clamp titles; " | " separators; NO em dashes anywhere.
    - Do not duplicate a project or role in two sections. Bootcamps go under
      Education; their capstone projects go under Projects.
+
 3. Build `cover-letter.tex`: maximum 250 words, 3 short paragraphs:
    (a) why this company specifically (use the company research),
    (b) my 2-3 strongest matching achievements with real numbers,
    (c) short, confident closing. Avoid clichés. No em dashes.
+
 4. Compile both to PDF with tectonic (or pdflatex). Fix any compile errors yourself.
    Then run the page-count gate:
    `scripts/check-pages.sh applications/<company>/resume.pdf`
    Confirm pages ≤ 2; prefer 1. If the check fails (Pages > 2), trim
    lowest-relevance content and recompile until it passes. Never ship >2.
-5. Write `changelog.md`: every meaningful change vs. the master resume,
+
+5. Write `changelog.md`: every meaningful change vs. the master/cache,
    each with a one-line reason.
+
 6. Show me: the changelog summary and any PARTIAL/GAP items you had to
    handle, so I can verify nothing is exaggerated.

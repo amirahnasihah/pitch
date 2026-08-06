@@ -2,6 +2,8 @@ Analyze this job posting. The job description (or a URL to it) follows:
 
 $ARGUMENTS
 
+**Facts SoT = log.exe.** See `AGENTS.md`.
+
 Steps:
 1. If I gave a URL, fetch it. If I gave nothing, ask me to paste the job description.
 2. Identify the company name and role. Create the folder `applications/<company-name>/`
@@ -11,7 +13,9 @@ Steps:
    have" = low).
 4. List the exact keywords and phrases the posting uses (skills, tools,
    methods, certifications). These matter for ATS keyword matching.
-5. Read `master-resume.tex` and map each requirement to my real experience:
+5. Pull facts from log.exe first (`get_site_meta`, `get_experience`,
+   `list_projects`, `list_clients`; skills via `logexe experience` / REST).
+   Use `master-resume.tex` only as secondary cache. Map each requirement:
    - STRONG match (I clearly have it)
    - PARTIAL match (related experience, needs careful wording)
    - GAP (I don't have it — be honest, do not invent)
