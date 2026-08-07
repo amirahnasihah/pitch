@@ -1,0 +1,97 @@
+% Tailored for: Deriv Applied AI Engineer
+% Facts: log.exe MCP 2026-08-07 + /interview/deriv-applied-ai-engineer.
+\documentclass[11pt]{article}
+\usepackage[margin=0.55in]{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{parskip}
+\usepackage{titlesec}
+\pagestyle{empty}
+\setlength{\parskip}{2pt}
+
+\titleformat{\section}
+  {\large\bfseries}{}{0pt}{}[\vspace{1pt}\hrule]
+\titlespacing*{\section}{0pt}{6pt}{3pt}
+
+\newcommand{\job}[4]{%
+  \vspace{2pt}{\bfseries #1} | #2#3 \hfill #4\par}
+
+\setlist[itemize]{leftmargin=14pt, itemsep=0pt, topsep=1pt, parsep=0pt}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Amirah Nasihah}\\[3pt]
+Seri Kembangan, Malaysia $\vert$ amirah.n@osbrjp.com $\vert$ +60 13-899 8030\\[1pt]
+\href{https://github.com/amirahnasihah}{github.com/amirahnasihah} $\vert$
+\href{https://amirahnasihah.my}{amirahnasihah.my} $\vert$
+\href{https://exe.amrhnshh.com}{exe.amrhnshh.com}
+\end{center}
+
+\section{Summary}
+Applied AI engineer and product-minded frontend/fullstack developer who ships
+LLM-enabled workflows: RAG prototypes, MCP tooling, and agent-facing systems,
+alongside production client web delivery. Strong on retrieval-first patterns,
+pragmatic tool choice, and release discipline. AWS Certified Solutions
+Architect, Associate. Based in Malaysia (Seri Kembangan / KL area).
+
+\section{Skills}
+\textbf{Languages:} TypeScript, JavaScript, Go, Rust, SQL, Shell\\
+\textbf{Applied AI:} MCP, Claude API, OpenAI API, RAG, semantic search,
+sqlite-vec, ChromaDB, multi-agent orchestration\\
+\textbf{Frontend \& product:} Next.js, Nuxt, Vue, React, Astro, Tailwind, Figma\\
+\textbf{Backend \& cloud:} Cloudflare Workers/D1/R2, Node.js, Bun, AWS
+(DynamoDB, S3), Terraform, Vercel, GitHub Actions, microCMS, SQLite
+
+\section{Work Experience}
+
+\job{Jr. Frontend Developer}{OSBR Sdn Bhd}{, Malaysia}{Apr 2025 - Present}
+\begin{itemize}
+  \item Shipped an AI/RAG conversational prototype for a travel client
+        (emotion classification, conversation logs, semantic retrieval) with
+        Terraform-provisioned AWS infra (DynamoDB, S3).
+  \item Built an internal Next.js AI chatbot for the same long-running client,
+        connecting product surfaces to LLM-assisted workflows.
+  \item Built a remote MCP server for OLAP-style analysis over a cooperative
+        supply-chain database used in weekly catalog planning.
+  \item Delivered Figma-to-code client sites on Nuxt, Vue, and Astro (microCMS);
+        recovered a production Vercel outage; added Workers scaffold + GitHub
+        Actions deploy to the team CLI.
+\end{itemize}
+
+\job{Frontend Developer}{Todak Digitech Sdn Bhd}{, Malaysia}{Jan 2024 - Apr 2025}
+\begin{itemize}
+  \item Owned responsive web delivery (UI, front-end, content strategy) with
+        API integrations; validated flows across Laravel, React, and Flutter.
+\end{itemize}
+
+\section{Projects}
+
+\job{log.exe | Agentic CMS}{Next.js, Workers, D1, R2, MCP, TypeScript}{}{2026 - Present}
+\begin{itemize}
+  \item Built an operational source of truth with REST, MCP, CLI, and citation-
+        based Ask/RAG so product facts stay consistent for humans and agents.
+\end{itemize}
+
+\job{SQLite Vector Store}{TypeScript, SQLite, sqlite-vec, OpenAI}{}{2025}
+\begin{itemize}
+  \item Built retrieval-first semantic search over knowledge graphs without a
+        separate vector database; open sourced.
+\end{itemize}
+
+\job{Categorised Search MCP}{TypeScript, OpenAI, ChromaDB, MCP}{}{2025}
+\begin{itemize}
+  \item Built an MCP server for categorized document retrieval (RAG) over legal
+        PDFs with embeddings and similarity search.
+\end{itemize}
+
+\section{Education}
+\job{Bachelor of Accountancy (Honours), First Class}{Universiti Teknologi MARA}{}{2018 - 2021}
+\job{Certified Associate in Front-End Development}{TalentLabs Academy}{}{Aug 2023}
+
+\section{Certifications}
+\begin{itemize}
+  \item AWS Certified Solutions Architect - Associate | Amazon Web Services
+\end{itemize}
+
+\end{document}

@@ -12,6 +12,11 @@
 applications/*
 !applications/.gitkeep
 !applications/EXAMPLE/
+# Tracked tailor outputs (explicit exceptions; keep other apps private)
+!applications/ai-llm-product-engineer/
+!applications/ai-llm-product-engineer/**
+!applications/deriv/
+!applications/deriv/**
 
 # Your real master resume may contain personal data. If you fork this repo
 # publicly, consider keeping your filled-in version private:
