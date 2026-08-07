@@ -25,6 +25,8 @@ Employer/education from `web/src/data/resume.ts`. Phone: +60 13-899 8030.
 | Foundation Certificate linked (TalentLabs) | Present on reference PDF / resume.ts; was missing from TeX |
 | Project titles linked with ↗ | Kaeru live, log.exe GitHub, Hetzner lab domain from SoT |
 | Kaeru App title made explicit | Was already first Projects row; clarify “App” + Tauri |
+| log.exe → portfolio `/projects/logexe` | Private repo; no GitHub URL on project row |
+| Replaced Hetzner with Canopy (portfolio link) | Applied-AI story; private Canopy → `/projects/canopy` |
 
 ## Gaps noted (not invented)
 

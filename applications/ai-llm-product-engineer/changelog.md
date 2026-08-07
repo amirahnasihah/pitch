@@ -28,6 +28,8 @@ log.exe `web/src/data/resume.ts`. Phone from user: +60 13-899 8030.
 | Foundation Certificate linked (TalentLabs) | Present on reference PDF / resume.ts; was missing from TeX |
 | Project titles linked with ↗ | Kaeru live, log.exe + Dobby GitHub from log.exe SoT |
 | Kaeru App title made explicit | Was already first Projects row; clarify “App” + Tauri |
+| log.exe → portfolio `/projects/logexe` | Private repo; no GitHub URL on project row |
+| Removed Dobby; added Canopy (portfolio link) | Private Canopy repo → `/projects/canopy`; cover letter aligned |
 
 ## Gaps noted (not invented)
 
