@@ -132,6 +132,7 @@ Creds: `~/.log-exe-creds`. KB ask is REST/MCP only (`ask_kb` /
 
 ## ATS-safe formatting rules (apply to every generated resume)
 - Single column only. No tables, no text boxes, no images, no icons.
+  No headshot / profile photo of the candidate (takyah image).
 - Contact info in the document body, not in a page header/footer.
 - Standard section names only: Summary, Skills, Work Experience,
   Projects, Education, Certifications.
