@@ -39,6 +39,9 @@ tailor   pull log.exe facts -> trim in LaTeX -> resume + cover PDFs
 review   stress-test: skeptical recruiter + ATS robot, scored out of 10
   |
 prep     before the interview: likely questions, STAR answers, mock round
+
+cv       (any time, off to the side) pull log.exe facts -> the full
+         multi-page CV, not tailored to any job
 ```
 
 ## Requirements
@@ -139,6 +142,23 @@ systems; check their docs for the equivalent setting.)
 | `review` | Two strict reviewers: a recruiter doing a 10-second scan, and an ATS robot checking keyword coverage and parse order. Scores each out of 10. |
 | `prep` | Generates likely interview questions, STAR answers built from your real experience, honest ways to handle gaps, and smart questions to ask them. Can run a mock interview. |
 | `log` | Files a new achievement into log.exe (facts SoT) and refreshes `master-resume.tex` as cache. |
+| `cv` | Builds the full professional CV (`cv.tex` / `cv.pdf`) from log.exe: every role, every substantial project, the whole skill inventory. Comprehensive and *not* tailored, 3 to 5 pages. |
+
+### Resume or CV?
+
+They are different documents and this kit builds both:
+
+| | Resume (`tailor`) | CV (`cv`) |
+|---|---|---|
+| Length | 1 page, hard max 2 | 3 to 5 pages |
+| Content | only what matches this job | everything |
+| Rebuilt | once per application | when your facts change |
+| Lives in | `applications/<company>/` | repo root, `cv.tex` |
+
+Use the resume for most applications, especially in the US. Use the CV when a
+posting or recruiter explicitly asks for a "full CV", which is common in the
+EU, the UK, and Japan. Both are gitignored; the tracked starting points are
+`master-resume.example.tex` and `cv.example.tex`.
 
 The skills are readable Markdown files mirrored in `.agents/skills/` and
 `.claude/skills/`. Keep both copies identical when customizing them.
@@ -148,7 +168,8 @@ The skills are readable Markdown files mirrored in `.agents/skills/` and
 Every target-compatible agent reads the shared project rules from `AGENTS.md`;
 `CLAUDE.md` imports that file for Claude Code compatibility. In short:
 **facts SoT = log.exe**, **layout SoT = pitch**, nothing is invented,
-resumes stay ATS-safe (prefer 1 page, hard max 2 via `scripts/check-pages.sh`),
+resumes stay ATS-safe (prefer 1 page, hard max 2 via `scripts/check-pages.sh`;
+the full CV is exempt from that budget but not from the honesty rules),
 and everything is organised per company under `applications/`. Wire log.exe
 MCP once (`bun run mcp:setup` in log.exe `web/`, or OpenCode remote MCP —
 creds in `~/.log-exe-creds`). Adjust `AGENTS.md` to fit your own standards.

@@ -7,7 +7,7 @@ These rules apply to every agent, every skill, and every generated document.
 | Concern | Source of truth | Notes |
 |---|---|---|
 | **Facts** (roles, bullets, skills, projects, certs, clients, metrics) | **log.exe** | Via MCP (preferred), `logexe` CLI, or REST. Do not invent from stale TeX alone. |
-| **PDF layout + per-job trim** | **this repo (pitch)** | LaTeX templates, ATS rules, page budget, `applications/<company>/`. |
+| **PDF layout + per-job trim** | **this repo (pitch)** | LaTeX templates, ATS rules, page budget, `applications/<company>/`, and the full CV (`cv.tex`). |
 | **Application trail** | deferred | See below — folders today; no tracker product yet. |
 
 ### Facts: log.exe
@@ -30,6 +30,28 @@ confirmed in log.exe. It is gitignored. Keep it; do **not** delete it.
   candidate.
 - If a job requirement is not covered by log.exe (and thus not in the
   refreshed master), report it as a gap. Do not paper over it.
+
+### The three documents (do not confuse them)
+
+| File | Length | Tailored? | Sent to anyone? |
+|---|---|---|---|
+| `master-resume.tex` | any | no | **never** — staging cache |
+| `applications/<company>/resume.tex` | 1 page (hard max 2) | yes, per job | yes |
+| `cv.tex` | 3 to 5 pages | **no** | yes, on request |
+
+`cv.tex` is the **full professional CV**: every role, every substantial
+project, the whole skill inventory, all education and certifications. Send it
+when someone asks for a "full CV" rather than a one-page resume (common in the
+EU, the UK, and Japan). Built by the `cv` skill.
+
+- Gitignored, same reason as `master-resume.tex`. Tracked counterpart:
+  `cv.example.tex` (fictional persona).
+- **Exempt from the page budget below** — do not run
+  `scripts/check-pages.sh` against it. It is NOT exempt from the honesty,
+  ATS-formatting, or confidentiality rules.
+- Keeps the page count honest by compacting thin projects into an
+  `\textit{Also built:}` paragraph per group, rather than padding with
+  near-empty entries.
 
 ### Application trail (deferred)
 
@@ -143,10 +165,13 @@ Creds: `~/.log-exe-creds`. KB ask is REST/MCP only (`ask_kb` /
 - No em dashes. Use " | " as a separator in the contact line and between a
   role title and its organisation; inside sentences, restructure or use a
   colon or hyphen.
-- Prefer ONE page. Hard maximum: TWO pages. Never ship three or more.
-  After compiling, run `scripts/check-pages.sh <resume.pdf>` (uses
-  pdfinfo). Exit non-zero / fail the tailor if Pages > 2; trim until it
-  passes. Prefer trimming to 1 page when content allows.
+- Page budget, for **tailored resumes only** (`applications/<company>/`):
+  prefer ONE page, hard maximum TWO, never ship three or more. After
+  compiling, run `scripts/check-pages.sh <resume.pdf>` (uses pdfinfo). Exit
+  non-zero / fail the tailor if Pages > 2; trim until it passes. Prefer
+  trimming to 1 page when content allows.
+  This budget does **not** apply to `cv.tex`, which is meant to run 3 to 5
+  pages. Do not run the page check against it.
 - Compile with tectonic (preferred) or pdflatex. After compiling, run a
   text-extraction check (pdftotext) to confirm the text reads top-to-bottom
   in the correct order.
