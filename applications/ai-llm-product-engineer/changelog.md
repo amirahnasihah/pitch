@@ -25,6 +25,9 @@ log.exe `web/src/data/resume.ts`. Phone from user: +60 13-899 8030.
 | Projects: Kaeru + log.exe + Dobby (cut SQLite Vector Store) | Prefer her Kaeru product; avoid SQLite-forward project on this pass |
 | Cert / TalentLabs titles linked with ↗ | Match Downloads resume style; Credly + TalentLabs SoT URLs |
 | Cover letter aligned | Dropped Terraform/AWS-infra and OLAP MCP claims |
+| Foundation Certificate linked (TalentLabs) | Present on reference PDF / resume.ts; was missing from TeX |
+| Project titles linked with ↗ | Kaeru live, log.exe + Dobby GitHub from log.exe SoT |
+| Kaeru App title made explicit | Was already first Projects row; clarify “App” + Tauri |
 
 ## Gaps noted (not invented)
 

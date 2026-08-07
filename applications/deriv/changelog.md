@@ -22,6 +22,9 @@ Employer/education from `web/src/data/resume.ts`. Phone: +60 13-899 8030.
 | Projects: Kaeru + log.exe + First Hetzner VPS | Real projects from log.exe; Hetzner shows ops/LLM lab |
 | Cert / TalentLabs titles linked with ↗ | Credly + TalentLabs URLs |
 | Cover letter aligned | Dropped Terraform/AWS-infra, OLAP, and ChromaDB MCP claims |
+| Foundation Certificate linked (TalentLabs) | Present on reference PDF / resume.ts; was missing from TeX |
+| Project titles linked with ↗ | Kaeru live, log.exe GitHub, Hetzner lab domain from SoT |
+| Kaeru App title made explicit | Was already first Projects row; clarify “App” + Tauri |
 
 ## Gaps noted (not invented)
 
