@@ -27,8 +27,13 @@ applications/*
 master-resume.tex
 master-resume.pdf
 
-# Compiled output of the tracked example template (the .tex is tracked).
+# Same for the full CV: real employers, dates, and contact details.
+cv.tex
+cv.pdf
+
+# Compiled output of the tracked example templates (the .tex files are tracked).
 master-resume.example.pdf
+cv.example.pdf
 
 # OS / editor junk
 .DS_Store

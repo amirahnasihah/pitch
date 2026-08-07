@@ -1,0 +1,213 @@
+% ============================================================
+% FULL CV TEMPLATE — copy this, do not edit it in place.
+%
+%   cp cv.example.tex cv.tex
+%
+% cv.tex is gitignored, so your real details stay off GitHub.
+% This example file is tracked, so it is the one every clone
+% starts from. Keep it fictional.
+%
+% *** FICTIONAL DATA ***
+% "Jordan Ruiz" is a made-up persona, the same one used in
+% master-resume.example.tex. It is NOT a real candidate. It exists
+% to show the expected structure and formatting.
+%
+% THREE DOCUMENTS, THREE JOBS — do not confuse them:
+%   master-resume.tex  staging cache. Holds everything, sent nowhere.
+%   applications/<company>/resume.tex  one page, tailored per job,
+%                      page-gated by scripts/check-pages.sh.
+%   cv.tex (this)      comprehensive, NOT tailored, 3 to 5 pages.
+%                      Send when someone asks for a "full CV"
+%                      (common in the EU, the UK, and Japan).
+%
+% Compile with: tectonic cv.tex
+%
+% DESIGN NOTES (keep these — ATS-safe even though this runs long):
+%  - Single column, standard fonts, no tables/graphics/icons.
+%  - Contact info in the body (not in a header/footer).
+%  - Page number only in the footer, via \pagestyle{plain}.
+%  - " | " separators, no em dashes.
+%  - Long tail of small projects goes in an "Also built" paragraph,
+%    not thirty near-empty entries. Keeps the page count honest.
+% ============================================================
+\documentclass[11pt]{article}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{parskip}
+\usepackage{titlesec}
+\pagestyle{plain}
+
+% Consistent section style: title, small gap, full-width rule.
+\titleformat{\section}
+  {\large\bfseries}{}{0pt}{}[\vspace{2pt}\hrule]
+\titlespacing*{\section}{0pt}{10pt}{4pt}
+
+% Sub-heading inside a section (grouping label, no rule).
+\newcommand{\grp}[1]{\vspace{5pt}{\bfseries #1}\par\vspace{1pt}}
+
+% Job/entry header: "Title | Organisation, Location            Dates"
+\newcommand{\job}[4]{% title, org, location(with leading ", " or empty), dates
+  \vspace{4pt}{\bfseries #1} | #2#3 \hfill #4\par}
+
+\setlist[itemize]{leftmargin=15pt, itemsep=1pt, topsep=2pt, parsep=0pt}
+
+% Let TeX stretch a little harder before it complains about a loose line.
+\setlength{\emergencystretch}{2em}
+
+\begin{document}
+
+% ---------- CONTACT ----------
+\begin{center}
+{\LARGE\bfseries Jordan Ruiz}\\[3pt]
+Backend-leaning Software Engineer $\vert$ Platform and Data\\[3pt]
+Austin, TX, USA $\vert$ jordan.ruiz.test@example.com $\vert$ +1 512 555 0134\\[1pt]
+\href{https://linkedin.com/in/jordanruiz-test}{linkedin.com/in/jordanruiz-test} $\vert$
+\href{https://github.com/jordanruiz-test}{github.com/jordanruiz-test} $\vert$
+\href{https://jordanruiz.example.com}{jordanruiz.example.com}
+\end{center}
+
+% ---------- PROFILE ----------
+% Longer than a resume summary, but still one paragraph. Say what you do,
+% what you are strongest at, and one real proof point.
+\section{Profile}
+Backend-leaning software engineer with 5 years of experience building and
+scaling Python and Node.js services on AWS. Strongest in API design, event
+pipelines, and deployment automation. Cut failed-deploy recovery time by
+60\% by building automated rollback tooling.
+
+% ---------- SKILLS ----------
+% A CV lists the full skill inventory, not the job-relevant subset.
+\section{Skills}
+\textbf{Languages:} Python, TypeScript, JavaScript, SQL, Go\\
+\textbf{Backend and Cloud:} FastAPI, Django, Node.js, Express, AWS (Lambda,
+ECS, RDS), Docker, Kubernetes\\
+\textbf{Data and Tools:} PostgreSQL, Redis, Kafka, Airflow, Terraform,
+GitHub Actions\\
+\textbf{Languages spoken:} English (native), Spanish (conversational)
+
+% ---------- WORK EXPERIENCE ----------
+% Use \grp{} to group bullets by theme when a single role covers several
+% distinct kinds of work. Skip \grp{} for roles with one clear focus.
+\section{Work Experience}
+
+\job{Backend Engineer}{Northlake Systems}{, Austin, TX}{Jun 2022 - Present}
+
+\grp{Services and APIs}
+\begin{itemize}
+  \item Redesigned the order-processing API from a monolith into 6
+        microservices using FastAPI and Docker, cutting average response time
+        from 480ms to 140ms.
+  \item Introduced contract testing between 4 internal services using Pact,
+        reducing integration bugs caught in staging by 45\%.
+\end{itemize}
+
+\grp{Data and pipelines}
+\begin{itemize}
+  \item Built a Kafka-based event pipeline processing 2.3M events per day,
+        replacing a nightly batch job and reducing data staleness from 24 hours
+        to under 5 minutes.
+  \item Migrated the primary PostgreSQL database to a read-replica
+        architecture, cutting peak query latency by 35\% during traffic spikes.
+\end{itemize}
+
+\grp{Platform and team}
+\begin{itemize}
+  \item Automated deployment rollback tooling with GitHub Actions and
+        Terraform, cutting failed-deploy recovery time by 60\%.
+  \item Mentored 3 junior engineers through a structured onboarding program,
+        shortening ramp-up time from 8 weeks to 5.
+  \item Wrote internal runbooks and documentation that cut on-call escalations
+        by 30\%.
+\end{itemize}
+
+\job{Software Engineer}{BrightPath Analytics}{, Remote}{Mar 2020 - May 2022}
+\begin{itemize}
+  \item Built a customer-facing analytics dashboard in React and Node.js used
+        by over 1,200 monthly active clients.
+  \item Developed ETL pipelines in Python and Airflow ingesting data from
+        15 or more third-party APIs, processing 500,000 records daily.
+  \item Implemented role-based access control across 3 internal applications,
+        closing a security gap flagged in a client audit.
+  \item Optimized a reporting SQL query from 12 seconds to 900ms by adding
+        targeted indexes and rewriting joins.
+  \item Raised backend test coverage from 40\% to 78\%.
+\end{itemize}
+
+% ---------- CLIENT ENGAGEMENTS ----------
+% Optional. Include only if you did agency or consulting work. If your
+% employer treats client names as confidential, describe them by sector
+% instead of naming them, the way this example does.
+\section{Selected Client Engagements}
+\begin{itemize}
+  \item \textbf{Logistics marketplace} (Python, AWS): event pipeline and
+        carrier-rate API for a same-day delivery product.
+  \item \textbf{Healthcare analytics vendor} (Django, PostgreSQL): reporting
+        layer and role-based access control for a regulated dataset.
+  \item \textbf{Retail chain} (Node.js, Redis): inventory sync between store
+        systems and an online storefront.
+\end{itemize}
+
+% ---------- PROJECTS ----------
+% Group by theme. Give substantial projects a full entry; sweep the long tail
+% of small ones into an "Also built" paragraph so the CV does not balloon.
+% Never list the same project both here and under Work Experience.
+\section{Projects}
+
+\grp{Open source and tooling}
+
+\job{shipwatch | GitHub Actions health CLI}{Python, Click, GitHub Actions}{}{2023}
+\begin{itemize}
+  \item Built and published a CLI that monitors workflow health across multiple
+        repos, reaching 300 or more GitHub stars.
+  \item Added Slack alerting, adopted by 2 engineering teams outside the
+        original project.
+\end{itemize}
+
+\vspace{3pt}
+\textit{Also built:} dotfile-sync, a one-command machine bootstrap (Shell);
+pgbench-report, a Postgres benchmark summarizer (Python).
+
+\grp{Web and product}
+
+\job{Personal finance tracker}{TypeScript, Next.js, PostgreSQL}{}{2021}
+\begin{itemize}
+  \item Built a self-hosted budgeting app with automatic bank-statement CSV
+        parsing and category tagging.
+  \item Used by a group of 20 beta users across 3 releases.
+\end{itemize}
+
+\grp{Infrastructure}
+
+\job{Kubernetes autoscaling demo | Bootcamp capstone}{Kubernetes, Terraform, AWS}{}{2022}
+\begin{itemize}
+  \item Built a demo cluster with horizontal pod autoscaling triggered by
+        custom Prometheus metrics, presented to a panel of 4 industry mentors.
+\end{itemize}
+
+\grp{Earlier work}
+Around twenty smaller projects from the pre-professional period, covering
+Flask, vanilla JavaScript, and coursework in algorithms and databases.
+Available on request or at
+\href{https://github.com/jordanruiz-test}{github.com/jordanruiz-test}.
+
+% ---------- EDUCATION ----------
+% Degrees AND bootcamps/academies/training programmes go here.
+% Reverse-chronological, same as everything else.
+\section{Education}
+\job{Cloud Infrastructure Bootcamp}{CloudForge Academy}{}{2022}
+8-week intensive programme in AWS and Kubernetes infrastructure; team
+capstone project listed under Projects.
+
+\job{B.S. Computer Science}{University of Texas at Austin}{}{2016 - 2020}
+GPA 3.6/4.0. Relevant coursework: Distributed Systems, Databases, Algorithms.
+
+% ---------- CERTIFICATIONS ----------
+\section{Certifications}
+\begin{itemize}
+  \item AWS Certified Solutions Architect - Associate $\vert$
+        Amazon Web Services, 2023
+  \item Terraform Associate $\vert$ HashiCorp, 2022
+\end{itemize}
+
+\end{document}
