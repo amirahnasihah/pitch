@@ -19,6 +19,12 @@ log.exe `web/src/data/resume.ts`. Phone from user: +60 13-899 8030.
 | Phone + Seri Kembangan filled | User + site_meta |
 | No LinkedIn URL | Not in site_meta; omitted rather than invent |
 | Dropped exe.amrhnshh.com from contact | Personal site only (`amirahnasihah.my`); app host is not a resume contact |
+| Travel RAG bullet rewritten (design/mockup/integration) | She did not provision Terraform/AWS infra for that client work |
+| Removed OLAP supply-chain MCP bullet | Mis-attributed / she did not own that work |
+| Skills: dropped Terraform, AWS services, SQLite | AWS is exam theory; SQLite not a claimed skill; no Terraform |
+| Projects: Kaeru + log.exe + Dobby (cut SQLite Vector Store) | Prefer her Kaeru product; avoid SQLite-forward project on this pass |
+| Cert / TalentLabs titles linked with ↗ | Match Downloads resume style; Credly + TalentLabs SoT URLs |
+| Cover letter aligned | Dropped Terraform/AWS-infra and OLAP MCP claims |
 
 ## Gaps noted (not invented)
 

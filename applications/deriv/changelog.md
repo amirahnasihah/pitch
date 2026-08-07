@@ -14,6 +14,14 @@ Employer/education from `web/src/data/resume.ts`. Phone: +60 13-899 8030.
 | Skills include Astro/Figma | FE delivery credibility for hybrid product role |
 | Phone filled | User request |
 | Dropped exe.amrhnshh.com from contact | Personal site only (`amirahnasihah.my`); app host is not a resume contact |
+| Removed “Based in Malaysia” from summary | Location already in header |
+| Travel RAG bullet rewritten (design/mockup/integration) | She did not provision Terraform/AWS infra |
+| Removed OLAP supply-chain MCP bullet | Mis-attributed / she did not own that work |
+| Removed Categorised Search MCP project | She asked to remove/replace |
+| Skills: dropped Terraform, AWS services, SQLite | AWS is exam theory; no Terraform claim |
+| Projects: Kaeru + log.exe + First Hetzner VPS | Real projects from log.exe; Hetzner shows ops/LLM lab |
+| Cert / TalentLabs titles linked with ↗ | Credly + TalentLabs URLs |
+| Cover letter aligned | Dropped Terraform/AWS-infra, OLAP, and ChromaDB MCP claims |
 
 ## Gaps noted (not invented)
 
