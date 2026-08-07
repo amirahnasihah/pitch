@@ -27,6 +27,8 @@ Employer/education from `web/src/data/resume.ts`. Phone: +60 13-899 8030.
 | Kaeru App title made explicit | Was already first Projects row; clarify “App” + Tauri |
 | log.exe → portfolio `/projects/logexe` | Private repo; no GitHub URL on project row |
 | Replaced Hetzner with Canopy (portfolio link) | Applied-AI story; private Canopy → `/projects/canopy` |
+| Summary tightened to 2 sentences | Per-JD tailored summary pass 2026-08-07 |
+| Kaeru bullet: shell + EN/JA i18n + a11y + multi-repo ownership | Contribution framing as outcomes, not vanity commit counts |
 
 ## Gaps noted (not invented)
 

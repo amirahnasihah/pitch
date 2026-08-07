@@ -17,6 +17,8 @@ applications/*
 !applications/ai-llm-product-engineer/**
 !applications/deriv/
 !applications/deriv/**
+!applications/frontend/
+!applications/frontend/**
 
 # Your real master resume may contain personal data. If you fork this repo
 # publicly, consider keeping your filled-in version private:
