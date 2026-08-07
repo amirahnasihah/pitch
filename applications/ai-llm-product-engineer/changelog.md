@@ -18,6 +18,7 @@ log.exe `web/src/data/resume.ts`. Phone from user: +60 13-899 8030.
 | Education condensed to degree + FE cert | Fit one page |
 | Phone + Seri Kembangan filled | User + site_meta |
 | No LinkedIn URL | Not in site_meta; omitted rather than invent |
+| Dropped exe.amrhnshh.com from contact | Personal site only (`amirahnasihah.my`); app host is not a resume contact |
 
 ## Gaps noted (not invented)
 

@@ -13,6 +13,7 @@ Employer/education from `web/src/data/resume.ts`. Phone: +60 13-899 8030.
 | Canopy/Dobby swapped vs AI-LLM variant | Deriv prep stresses retrieval + production-safe; Hetzner shows ops curiosity |
 | Skills include Astro/Figma | FE delivery credibility for hybrid product role |
 | Phone filled | User request |
+| Dropped exe.amrhnshh.com from contact | Personal site only (`amirahnasihah.my`); app host is not a resume contact |
 
 ## Gaps noted (not invented)
 
